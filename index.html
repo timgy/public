@@ -1,9 +1,7 @@
-
 <!doctype html>
 <html><head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="ap-local-base-url" content="{{localBaseUrl}}">
 
 <link rel="stylesheet" href="https://aui-cdn.atlassian.com/aui-adg/6.0.0/css/aui.min.css" media="all">
 <link rel="stylesheet" href="https://aui-cdn.atlassian.com/aui-adg/6.0.0/css/aui-experimental.min.css" media="all">
@@ -45,39 +43,89 @@ function fillColumnsSelector(selector, columns) {
 <!-- В ЭТОМ БЛОКЕ НИЧЕГО НЕ ТРОГАТЬ, ИМЕННО ТАК МЫ РАБОТАЕМ С ЭТИМ КОНТРОЛОМ -->
 <script type="text/javascript">
 var columns1 = [
-    {id: 'name1', name: 'NAME-1', selected: true, priority: true},
-    {id: 'name2', name: 'NAME-2', selected: false, priority: true},
-    {id: 'name3', name: 'name-3', selected: true, priority: false},
-    {id: 'name4', name: 'NAME-4', selected: true, priority: true},
-    {id: 'name5', name: 'NAME-5', selected: false, priority: true},
-    {id: 'name6', name: 'name-6', selected: false, priority: false},
-    {id: 'name7', name: 'name-7', selected: false, priority: false},
-    {id: 'name8', name: 'name-8', selected: true, priority: false},
-    {id: 'name9', name: 'name-9', selected: false, priority: false},
+    {id: 'name1', name: 'Name-1', selected: true},
+    {id: 'name2', name: 'Name-2', selected: false},
+    {id: 'name3', name: 'Name-3', selected: true},
+    {id: 'name4', name: 'Name-4', selected: true},
+    {id: 'name5', name: 'Name-5', selected: false},
+    {id: 'name6', name: 'Name-6', selected: false},
+    {id: 'name7', name: 'Name-7', selected: false},
+    {id: 'name8', name: 'Name-8', selected: true},
+    {id: 'name9', name: 'Name-9', selected: false},
+    {id: 'name11', name: 'Name-11', selected: true},
+    {id: 'name12', name: 'Name-12', selected: false},
+    {id: 'name13', name: 'Name-13', selected: true},
+    {id: 'name14', name: 'Name-14', selected: true},
+    {id: 'name15', name: 'Name-15', selected: false},
+    {id: 'name16', name: 'Name-16', selected: false},
+    {id: 'name17', name: 'Name-17', selected: false},
+    {id: 'name18', name: 'Name-18', selected: true},
+    {id: 'name19', name: 'Name-19', selected: false},
+    {id: 'name21', name: 'Name-21', selected: true},
+    {id: 'name22', name: 'Name-22', selected: false},
+    {id: 'name23', name: 'Name-23', selected: true},
+    {id: 'name24', name: 'Name-24', selected: true},
+    {id: 'name25', name: 'Name-25', selected: false},
+    {id: 'name26', name: 'Name-26', selected: false},
+    {id: 'name27', name: 'Name-27', selected: false},
+    {id: 'name28', name: 'Name-28', selected: true},
+    {id: 'name29', name: 'Name-29', selected: false},
 ];
 
 var columns2 = [
-    {id: 'test1', name: 'TEST-1', selected: true, priority: true},
-    {id: 'test2', name: 'TEST-2', selected: true, priority: true},
-    {id: 'test3', name: 'test-3', selected: true, priority: false},
-    {id: 'test4', name: 'TEST-4', selected: true, priority: true},
-    {id: 'test5', name: 'TEST-5', selected: false, priority: true},
-    {id: 'test6', name: 'test-6', selected: false, priority: false},
-    {id: 'test7', name: 'test-7', selected: false, priority: false},
-    {id: 'test8', name: 'test-8', selected: false, priority: false},
-    {id: 'test9', name: 'test-9', selected: false, priority: false},
+    {id: 'test1', name: 'Test-1', selected: true},
+    {id: 'test2', name: 'Test-2', selected: true},
+    {id: 'test3', name: 'Test-3', selected: true},
+    {id: 'test4', name: 'Test-4', selected: true},
+    {id: 'test5', name: 'Test-5', selected: false},
+    {id: 'test6', name: 'Test-6', selected: false},
+    {id: 'test7', name: 'Test-7', selected: false},
+    {id: 'test8', name: 'Test-8', selected: false},
+    {id: 'test9', name: 'Test-9', selected: false},
+    {id: 'test11', name: 'Test-11', selected: true},
+    {id: 'test12', name: 'Test-12', selected: true},
+    {id: 'test13', name: 'Test-13', selected: true},
+    {id: 'test14', name: 'Test-14', selected: true},
+    {id: 'test15', name: 'Test-15', selected: false},
+    {id: 'test16', name: 'Test-16', selected: false},
+    {id: 'test17', name: 'Test-17', selected: false},
+    {id: 'test18', name: 'Test-18', selected: false},
+    {id: 'test19', name: 'Test-19', selected: false},
+    {id: 'test21', name: 'Test-21', selected: true},
+    {id: 'test22', name: 'Test-22', selected: true},
+    {id: 'test23', name: 'Test-23', selected: true},
+    {id: 'test24', name: 'Test-24', selected: true},
+    {id: 'test25', name: 'Test-25', selected: false},
+    {id: 'test26', name: 'Test-26', selected: false},
+    {id: 'test27', name: 'Test-27', selected: false},
+    {id: 'test28', name: 'Test-28', selected: false},
+    {id: 'test29', name: 'Test-29', selected: false},
+    {id: 'test31', name: 'Test-31', selected: true},
+    {id: 'test32', name: 'Test-32', selected: true},
+    {id: 'test33', name: 'Test-33', selected: true},
+    {id: 'test34', name: 'Test-34', selected: true},
+    {id: 'test35', name: 'Test-35', selected: false},
+    {id: 'test36', name: 'Test-36', selected: false},
+    {id: 'test37', name: 'Test-37', selected: false},
+    {id: 'test38', name: 'Test-38', selected: false},
+    {id: 'test39', name: 'Test-39', selected: false},
 ];
 
 $('#columns-1').on({
     "aui-dropdown2-item-check": function(e) { console.log('#columns-1', $(e.target).attr('id'), true); },
-    "aui-dropdown2-item-uncheck": function(e) { console.log('#columns-1', $(e.target).attr('id'), false); }
+    "aui-dropdown2-item-uncheck": function(e) { console.log('#columns-1', $(e.target).attr('id'), false); },
+    "aui-dropdown2-show": function(e) { 
+        columns1.forEach(function(c) { c.selected = Math.random() < 0.3; } );
+        fillColumnsSelector($(this), columns1); 
+    }
 });
 $('#columns-2').on({
     "aui-dropdown2-item-check": function(e) { console.log('#columns-2', $(e.target).attr('id'), true); },
-    "aui-dropdown2-item-uncheck": function(e) { console.log('#columns-2', $(e.target).attr('id'), false); }
+    "aui-dropdown2-item-uncheck": function(e) { console.log('#columns-2', $(e.target).attr('id'), false); },
+    "aui-dropdown2-show": function(e) { 
+        columns2.forEach(function(c) { c.selected = Math.random() < 0.3; } );
+        fillColumnsSelector($(this), columns2); 
+    }
 });
-
-fillColumnsSelector($('#columns-1'), columns1);
-fillColumnsSelector($('#columns-2'), columns2);
 </script>
 </body></html>
