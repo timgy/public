@@ -1,0 +1,83 @@
+
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="ap-local-base-url" content="{{localBaseUrl}}">
+
+<link rel="stylesheet" href="https://aui-cdn.atlassian.com/aui-adg/6.0.0/css/aui.min.css" media="all">
+<link rel="stylesheet" href="https://aui-cdn.atlassian.com/aui-adg/6.0.0/css/aui-experimental.min.css" media="all">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://aui-cdn.atlassian.com/aui-adg/6.0.0/js/aui.min.js"></script>
+<script src="https://aui-cdn.atlassian.com/aui-adg/6.0.0/js/aui-experimental.min.js"></script>
+</head>
+<body>
+
+<!-- ПЕРВЫЙ СЕЛЕКТОР -->
+<a href="#" aria-owns="columns-1" aria-haspopup="true" class="aui-button aui-button-subtle column-picker-trigger aui-style-default aui-dropdown2-trigger">Columns 1</a>
+<div id="columns-1" class="aui-dropdown2 aui-style-default aui-dropdown2-section">
+</div>
+
+<!-- ВТОРОЙ СЕЛЕКТОР -->
+<a href="#" aria-owns="columns-2" aria-haspopup="true" class="aui-button aui-button-subtle column-picker-trigger aui-style-default aui-dropdown2-trigger">Columns 2</a>
+<div id="columns-2" class="aui-dropdown2 aui-style-default aui-dropdown2-section">
+</div>
+
+<!-- А ВОТ ТУТ МОЖНО ПИСАТЬ ЧТО УГОДНО И ВООБЩЕ ВЫНЕСТИ В ОТДЕЛЬНЫЙ ФАЙЛ -->
+<script type="text/javascript">
+function fillColumnsSelector(selector, columns) {
+    var result = ['<ul>'];
+    columns.forEach(function(column) {
+        result.push('<li><a class="aui-dropdown2-checkbox interactive');
+        if (column.selected)
+            result.push(' checked');
+        result.push('" id="');
+        result.push(column.id);
+        result.push('">')
+        result.push(column.name);
+        result.push('</a></li>');
+    });
+    result.push('</ul>');
+    selector.html(result.join(''));
+}
+</script>
+
+<!-- В ЭТОМ БЛОКЕ НИЧЕГО НЕ ТРОГАТЬ, ИМЕННО ТАК МЫ РАБОТАЕМ С ЭТИМ КОНТРОЛОМ -->
+<script type="text/javascript">
+var columns1 = [
+    {id: 'name1', name: 'NAME-1', selected: true, priority: true},
+    {id: 'name2', name: 'NAME-2', selected: false, priority: true},
+    {id: 'name3', name: 'name-3', selected: true, priority: false},
+    {id: 'name4', name: 'NAME-4', selected: true, priority: true},
+    {id: 'name5', name: 'NAME-5', selected: false, priority: true},
+    {id: 'name6', name: 'name-6', selected: false, priority: false},
+    {id: 'name7', name: 'name-7', selected: false, priority: false},
+    {id: 'name8', name: 'name-8', selected: true, priority: false},
+    {id: 'name9', name: 'name-9', selected: false, priority: false},
+];
+
+var columns2 = [
+    {id: 'test1', name: 'TEST-1', selected: true, priority: true},
+    {id: 'test2', name: 'TEST-2', selected: true, priority: true},
+    {id: 'test3', name: 'test-3', selected: true, priority: false},
+    {id: 'test4', name: 'TEST-4', selected: true, priority: true},
+    {id: 'test5', name: 'TEST-5', selected: false, priority: true},
+    {id: 'test6', name: 'test-6', selected: false, priority: false},
+    {id: 'test7', name: 'test-7', selected: false, priority: false},
+    {id: 'test8', name: 'test-8', selected: false, priority: false},
+    {id: 'test9', name: 'test-9', selected: false, priority: false},
+];
+
+$('#columns-1').on({
+    "aui-dropdown2-item-check": function(e) { console.log('#columns-1', $(e.target).attr('id'), true); },
+    "aui-dropdown2-item-uncheck": function(e) { console.log('#columns-1', $(e.target).attr('id'), false); }
+});
+$('#columns-2').on({
+    "aui-dropdown2-item-check": function(e) { console.log('#columns-2', $(e.target).attr('id'), true); },
+    "aui-dropdown2-item-uncheck": function(e) { console.log('#columns-2', $(e.target).attr('id'), false); }
+});
+
+fillColumnsSelector($('#columns-1'), columns1);
+fillColumnsSelector($('#columns-2'), columns2);
+</script>
+</body></html>
