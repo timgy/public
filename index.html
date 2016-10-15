@@ -8,37 +8,84 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://aui-cdn.atlassian.com/aui-adg/6.0.0/js/aui.min.js"></script>
 <script src="https://aui-cdn.atlassian.com/aui-adg/6.0.0/js/aui-experimental.min.js"></script>
+<style>
+	.column-select-container {
+		width: 200px;
+		padding: 5px;
+	}
+	.column-select-list {
+		padding: 5px 0;
+		max-height: 200px;
+		overflow: auto;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	}
+	.column-select-list:last-child {
+		border-bottom: none;
+	}
+	.column-select-search {
+		margin-bottom: 10px;
+	}
+</style>
 </head>
 <body>
 
 <!-- ПЕРВЫЙ СЕЛЕКТОР -->
 <a href="#" aria-owns="columns-1" aria-haspopup="true" class="aui-button aui-button-subtle column-picker-trigger aui-style-default aui-dropdown2-trigger">Columns 1</a>
-<div id="columns-1" class="aui-dropdown2 aui-style-default aui-dropdown2-section">
+<div id="columns-1" class="aui-style-default aui-dropdown2">
+	<div class="column-select-container">
+		<div class="column-select-search">
+			<form class="aui">
+				<input class="text" type="search" id="column-1-search" name="text-input" placeholder="Selector">
+			</form>
+		</div>
+		<div class="column-select-list enabled-list"></div>
+		<div class="column-select-list">
+			<div class="aui-dropdown2-heading">
+				<strong>Selectors</strong>
+			</div>
+			<div class="disabled-list"></div>
+		</div>
+	</div>
 </div>
 
 <!-- ВТОРОЙ СЕЛЕКТОР -->
 <a href="#" aria-owns="columns-2" aria-haspopup="true" class="aui-button aui-button-subtle column-picker-trigger aui-style-default aui-dropdown2-trigger">Columns 2</a>
-<div id="columns-2" class="aui-dropdown2 aui-style-default aui-dropdown2-section">
+<div id="columns-2" class="aui-style-default aui-dropdown2">
+	<div class="column-select-container">
+		<div class="column-select-search">
+			<form class="aui">
+				<input class="text" type="search" id="column-2-search" name="text-input" placeholder="Selector">
+			</form>
+		</div>
+		<div class="column-select-list enabled-list"></div>
+		<div class="column-select-list">
+			<div class="aui-dropdown2-heading">
+				<strong>Selectors</strong>
+			</div>
+			<div class="disabled-list"></div>
+		</div>
+	</div>
 </div>
 
 <!-- А ВОТ ТУТ МОЖНО ПИСАТЬ ЧТО УГОДНО И ВООБЩЕ ВЫНЕСТИ В ОТДЕЛЬНЫЙ ФАЙЛ -->
-<script type="text/javascript">
-function fillColumnsSelector(selector, columns) {
-    var result = ['<ul>'];
-    columns.forEach(function(column) {
-        result.push('<li><a class="aui-dropdown2-checkbox interactive');
-        if (column.selected)
-            result.push(' checked');
-        result.push('" id="');
-        result.push(column.id);
-        result.push('">')
-        result.push(column.name);
-        result.push('</a></li>');
-    });
-    result.push('</ul>');
-    selector.html(result.join(''));
-}
-</script>
+<script src="component.js"></script>
+<!--<script type="text/javascript">-->
+<!--function fillColumnsSelector(selector, columns) {-->
+    <!--var result = ['<ul>'];-->
+    <!--columns.forEach(function(column) {-->
+        <!--result.push('<li><a class="aui-dropdown2-checkbox interactive');-->
+        <!--if (column.selected)-->
+            <!--result.push(' checked');-->
+        <!--result.push('" id="');-->
+        <!--result.push(column.id);-->
+        <!--result.push('">')-->
+        <!--result.push(column.name);-->
+        <!--result.push('</a></li>');-->
+    <!--});-->
+    <!--result.push('</ul>');-->
+    <!--selector.html(result.join(''));-->
+<!--}-->
+<!--</script>-->
 
 <!-- В ЭТОМ БЛОКЕ НИЧЕГО НЕ ТРОГАТЬ, ИМЕННО ТАК МЫ РАБОТАЕМ С ЭТИМ КОНТРОЛОМ -->
 <script type="text/javascript">
